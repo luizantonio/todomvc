@@ -1,0 +1,204 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+     
+<h:head>
+  <title>Login Page</title>
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"/>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i&amp;subset=cyrillic,cyrillic-ext,greek,greek-ext,latin-ext,vietnamese" rel="stylesheet"/>
+    
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	
+  <h:outputStylesheet library="css" name="maincss.css" />
+  <title>#{labels.topic}</title>
+   
+   
+   <script type="text/javascript">
+
+$(document).ready(function () {
+	$( "#personWelcome" ).css( "color", "gray" );
+	
+}
+</script>
+</h:head>
+<ui:composition template="/WEB-INF/templates/BasicTemplate.xhtml">
+    <ui:define name="content">	
+    	<script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+		  <script type="text/javascript">
+		  $("#email").focus();		  
+		  window.onload = function() {
+			    document.getElementById('formId:email').focus();
+			}
+		  </script>	
+		<div class="container">	
+		    <div class="row">
+		    	<div id="personWelcome">
+        			<h1>
+        		     <center>Todos</center>
+				    </h1>
+        		</div>
+		        <div class="col-md-8 col-md-offset-2">
+		            <div class="panel panel-default">
+		                <div class="panel-heading">Cadastro</div>
+		                <div class="panel-body">
+							<h:outputText value="#{todoController.message}" 
+		                               	  rendered="#{not empty todoController.message}"/>
+		                               	  		                    
+						  	<h:form id="formId" class="form-horizontal" method="post">	
+						  		<div class="form-group row">
+						  			<div class="col-md-2">
+						  				<h:messages errorStyle="color:darkred" for="formId" globalOnly="true" />						  			
+						  			</div>
+						  		</div>
+								<div class="form-group row">	
+									<!-- <h:outputLabel for="title" value="Log in:" /> -->
+								    <label for="title" class="col-md-4 control-label">Title:</label>							    
+								    <div class="col-md-6">								    	
+										<h:inputText value="#{todoController.title}" id="title" 
+										             autofocus="true" required="true" 
+										             type="title" class="form-control" name="title"
+										      	     requiredMessage="Title inválido! Digite um title válido (exemlo: Title)." />
+ 										<h:message cerrorStyle="color:darkred" class="error" for="title" globalOnly="true" />
+									</div>
+							    </div>
+							   
+							    <div class="form-group row">
+					                <div class="col-md-6 col-md-offset-4">
+							      		<h:commandButton action="#{todoController.addTodo()}" value="Save"
+					                                     update="msj" ajax="false"
+					                                     class="btn btn-primary"/>
+					                    <br />
+					                </div>
+					            </div>
+						  	</h:form>
+						  	<h:form id="formId2" rendered="#{sessionScope.usuario != null}" >
+						  		<h:outputText id="msg" 
+						  		              value="You are loged with user name: #{sessionScope.usuario.name}"
+						  		              style="color:red;"/>
+						  		              <br />
+						  	</h:form>
+						  	<h:form id="formId3" rendered="#{sessionScope.usuario != null}" >
+						  		<h:commandLink id="botao_voltar" onclick="javascript:history.go(-1)" 
+						  		               value="Voltar" />
+						  		<p:menubar>
+									<p:menuitem value="Minha área" 
+									            url="http://localhost:8081/pg/admin/home.xhtml" 
+									            icon="fa fa-home" >
+									            &nbsp;&nbsp;Minha Área</p:menuitem>
+								</p:menubar>
+						  	</h:form>
+					   </div>
+				    </div>
+			     </div>
+			  </div>
+			  
+			  
+		    <div class="row">
+		        <div class="col-md-8 col-md-offset-2">
+		            <div class="panel panel-default">
+		                <div class="panel-heading">Usuários Cadastrados</div>
+		                <h:outputText value="#{todoController.horario}" 
+		                              rendered="#{not empty todoController.horario}"/>
+		                
+		                <div  class="panel panel-body">
+		                	 <p:panelGrid styleClass="companyHeaderGrid">
+		                	   <p:row>
+		                	   		<span class="help-block" style="color:red">
+								        <strong icon="ui-icon-check"> <h:messages class="error" for="buscarPor" globalOnly="false"/></strong>
+								       
+								    </span>
+		                	   </p:row>
+							    <p:row>
+							        <p:column>
+							            <h:form id="formbuscar0">
+					                	    <div class="form-group">
+					                	    	<h:commandButton action="#{todoController.show}" 
+												                 class="btn btn-primary" 												                 
+												                 value="Exibir Todos"/>
+									        </div>
+									    </h:form>
+							        </p:column>
+							       
+							        <p:column>
+							        	 <style type="text/css">
+										    .label, .value {
+										        vertical-align: top
+										    }
+										 
+										    .output {
+										        font-weight: bold
+										    }
+										</style>
+							             
+							        </p:column>
+							    </p:row>
+							</p:panelGrid>		                
+		                </div>
+
+		                <div class="panel-body">
+				                <style type="text/css">
+								    .old {
+								        background-color: #fca752 !important;
+								        background-image: none !important;
+								        color: #000000 !important;
+								    }
+								</style>
+					
+						<h:form id="form">
+							<p:dataTable value="#{todoController.todos}" var="item" id="itens" >
+								<h:inputHidden id="id_for_hidden" name="id_for_hidden" value="#{item.id}" />
+								<p:column headerText="Name" id="column1" headerClass="helpHed" >
+									<f:facet name="header">
+										<h:outputText value="#{item.title}&nbsp;&nbsp;" ></h:outputText>
+									</f:facet>
+													
+								</p:column>					
+								<p:column headerText="Editar" id="column3" icon="fa fa-pencil">
+									<h:form>
+										<h:commandButton value="removeTodo" class="btn btn-primary" 
+									                     action="#{todoController.removeTodo(item)}" >							                 
+									                 <f:param name="id_for_hidden2" value="#{item.id}" />
+									                 <input type="hidden" name="next" id="next" value="#{item.id}" />
+									                 <h:inputHidden name="userId"  value="#{item.id}" />
+										</h:commandButton>
+									    
+									</h:form>
+								</p:column>
+								<p:column id="column4">
+									<f:facet name="header">
+										<h:outputText value="&nbsp;#{todoController.message}"/>
+									</f:facet>
+								</p:column>								
+							</p:dataTable>		
+						</h:form>
+						
+        
+					  </div>
+					  
+		            </div>
+		        </div>
+		        
+				    
+		    </div>
+		
+		 </div><!-- Div Container -->
+
+	</ui:define>
+</ui:composition>
+<!-- 				
+<p:messages id="messages" showDetail="true" autoUpdate="true" style="color:red;"/> 
+<p:commandButton value="Log in" icon="ui-icon-star" 
+						      					action="#{loginController.login}" ajax="false"></p:commandButton>
+-->
+</html>

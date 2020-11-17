@@ -1,0 +1,290 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>todotest</groupId>
+  <artifactId>todotest</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>war</packaging>
+  <name>todotest</name>
+  <description>Test to todo project</description>
+  
+    <dependencies>
+  
+  	<!-- SPRING AND SECURITY -->
+  	<!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-core -->
+	<dependency>
+	    <groupId>org.springframework.security</groupId>
+	    <artifactId>spring-security-core</artifactId>
+	    <version>5.2.1.RELEASE</version>
+	</dependency>
+  	<!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-config -->
+	<dependency>
+	    <groupId>org.springframework.security</groupId>
+	    <artifactId>spring-security-config</artifactId>
+	    <version>5.2.1.RELEASE</version>
+	</dependency>
+  	<!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-web -->
+	<dependency>
+	    <groupId>org.springframework.security</groupId>
+	    <artifactId>spring-security-web</artifactId>
+	    <version>5.2.1.RELEASE</version>
+	</dependency>
+  	<!-- https://mvnrepository.com/artifact/org.springframework/spring-webmvc -->
+	<dependency>
+	    <groupId>org.springframework</groupId>
+	    <artifactId>spring-webmvc</artifactId>
+	    <version>5.2.0.RELEASE</version>
+	</dependency>
+  	<!-- Integração com Hibernate -->
+	<!-- https://mvnrepository.com/artifact/org.springframework/spring-orm -->
+	<dependency>
+	    <groupId>org.springframework</groupId>
+	    <artifactId>spring-orm</artifactId>
+	    <version>5.2.0.RELEASE</version>
+	</dependency>
+	<!--  Orientação a aspectus -->
+	<!-- https://mvnrepository.com/artifact/org.springframework/spring-aop -->
+	<dependency>
+	    <groupId>org.springframework</groupId>
+	    <artifactId>spring-aop</artifactId>
+	    <version>5.2.0.RELEASE</version>
+	</dependency>
+	<!-- https://mvnrepository.com/artifact/org.springframework.data/spring-data-jpa -->
+	<dependency>
+	    <groupId>org.springframework.data</groupId>
+	    <artifactId>spring-data-jpa</artifactId>
+	    <version>2.2.0.RELEASE</version>
+	</dependency>
+	 <!-- Error:  is missing
+	<dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-thymeleaf</artifactId>
+    </dependency>
+  	-->
+    <!-- Connection with MySQL -->
+	<!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
+	<dependency>
+		<groupId>mysql</groupId>
+		<artifactId>mysql-connector-java</artifactId>
+		<version>8.0.17</version>
+	</dependency>
+	
+	<!-- Connection with PostgreSQL -->
+	<!-- https://mvnrepository.com/artifact/org.postgresql/postgresql -->
+	<dependency>
+	    <groupId>org.postgresql</groupId>
+	    <artifactId>postgresql</artifactId>
+	    <version>42.2.18</version>
+	</dependency>
+	
+	<!-- a JDBC Connection pooling / Statement caching library  -->
+	<!-- https://mvnrepository.com/artifact/com.mchange/c3p0 -->
+	<dependency>
+		<groupId>com.mchange</groupId>
+		<artifactId>c3p0</artifactId>
+		<version>0.9.5.4</version>
+	</dependency>
+	  
+	<!-- HIBERNATE -->
+	<!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-core -->
+	<dependency>
+		<groupId>org.hibernate</groupId>
+		<artifactId>hibernate-core</artifactId>
+		<version>5.4.6.Final</version>
+	</dependency>
+	
+	<!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-entitymanager -->
+	<dependency>
+		    <groupId>org.hibernate</groupId>
+		    <artifactId>hibernate-entitymanager</artifactId>
+		    <version>5.4.6.Final</version>
+	</dependency>
+	
+	<!-- https://mvnrepository.com/artifact/org.hibernate.validator/hibernate-validator -->
+	<dependency>
+		<groupId>org.hibernate.validator</groupId>
+		<artifactId>hibernate-validator</artifactId>
+		<version>6.1.0.Alpha2</version>
+	</dependency>
+		
+	<!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-envers -->
+	<dependency>
+		<groupId>org.hibernate</groupId>
+		<artifactId>hibernate-envers</artifactId>
+		<version>5.4.6.Final</version>
+	</dependency>
+		
+	<!-- JPA -->
+	<!-- https://mvnrepository.com/artifact/org.hibernate.javax.persistence/hibernate-jpa-2.1-api -->
+	<dependency>
+		<groupId>org.hibernate.javax.persistence</groupId>
+		<artifactId>hibernate-jpa-2.1-api</artifactId>
+		<version>1.0.0.Final</version>
+	</dependency>
+		
+	<!-- https://mvnrepository.com/artifact/org.eclipse.persistence/org.eclipse.persistence.jpa -->
+	<dependency>
+		<groupId>org.eclipse.persistence</groupId>
+		<artifactId>org.eclipse.persistence.jpa</artifactId>
+		<version>2.7.4</version>
+	</dependency>
+			
+		
+	<!-- https://mvnrepository.com/artifact/cglib/cglib -->
+	<dependency>
+		<groupId>cglib</groupId>
+		<artifactId>cglib</artifactId>
+		<version>3.3.0</version>
+	</dependency>
+
+	<!--  Jasper Report - iReport -->
+	<dependency>
+        <groupId>net.sf.jasperreports</groupId>
+        <artifactId>jasperreports</artifactId>
+        <version>6.2.1</version>
+    </dependency>
+    
+	<!-- https://mvnrepository.com/artifact/javax.servlet/jstl -->
+	<!--  
+	<dependency>
+	    <groupId>javax.servlet</groupId>
+	    <artifactId>jstl</artifactId>
+	    <version>1.2</version>
+	</dependency>
+	-->
+	<!-- https://mvnrepository.com/artifact/javax.servlet/servlet-api -->
+	 
+	<dependency>
+	    <groupId>javax.servlet</groupId>
+	    <artifactId>servlet-api</artifactId>
+	    <version>2.5</version>
+	    <scope>provided</scope>
+	</dependency>
+	
+	<!-- https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api -->
+	<!--  
+	<dependency>
+	    <groupId>javax.servlet</groupId>
+	    <artifactId>javax.servlet-api</artifactId>
+	    <version>4.0.1</version>
+	    <scope>provided</scope>
+	</dependency>
+	-->
+	<!--  JSF -->
+	<!--  
+	<dependency>
+	    <groupId>javax.faces</groupId>
+	    <artifactId>jsf-api</artifactId>
+	    <version>2.0</version>
+	    <scope>provided</scope>
+	</dependency> 
+	-->
+	 <!--  Prime Faces -->
+	<!-- https://mvnrepository.com/artifact/org.primefaces/primefaces -->
+	<dependency>
+	    <groupId>org.primefaces</groupId>
+	    <artifactId>primefaces</artifactId>
+	    <version>7.0</version>
+	</dependency>
+	
+    <dependency>
+            <groupId>org.glassfish</groupId>
+            <artifactId>javax.faces</artifactId>
+            <version>2.1.13</version>
+            <scope>compile</scope>
+     </dependency>
+     
+    <dependency>
+        <groupId>commons-io</groupId>
+        <artifactId>commons-io</artifactId>
+        <version>2.4</version>
+	</dependency>
+      
+     <!-- JPA -->
+	<!-- https://mvnrepository.com/artifact/org.hibernate.javax.persistence/hibernate-jpa-2.1-api -->
+	<dependency>
+		<groupId>org.hibernate.javax.persistence</groupId>
+		<artifactId>hibernate-jpa-2.1-api</artifactId>
+		<version>1.0.0.Final</version>
+	</dependency>
+		
+	<!-- https://mvnrepository.com/artifact/org.eclipse.persistence/org.eclipse.persistence.jpa -->
+	<dependency>
+		<groupId>org.eclipse.persistence</groupId>
+		<artifactId>org.eclipse.persistence.jpa</artifactId>
+		<version>2.7.4</version>
+	</dependency>
+		
+	<!-- JSON 
+		<dependency>
+            <groupId>com.jayway.jsonpath</groupId>
+            <artifactId>json-path</artifactId>
+            <scope>test</scope>
+        </dependency>
+        -->
+  </dependencies>
+  
+  <repositories>
+      <repository>
+            <id>prime-repo</id>
+            <name>PrimeFaces Maven Repository</name>
+            <url>http://repository.primefaces.org</url>
+            <layout>default</layout>
+      </repository>
+  </repositories>
+  
+  
+  <build>
+    <sourceDirectory>src</sourceDirectory>
+    <plugins>
+      <plugin>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.8.0</version>
+        <configuration>
+          <source>1.8</source>
+          <target>1.8</target>
+        </configuration>
+      </plugin>
+      <plugin>
+        <artifactId>maven-war-plugin</artifactId>
+        <version>3.2.1</version>
+        <configuration>
+          <warSourceDirectory>WebContent</warSourceDirectory>
+        </configuration>
+      </plugin>
+      
+      <!-- Add 23/11/2019 18:38:31 -->
+      <!-- Verify Fonts -->
+	    <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-eclipse-plugin -->
+		<plugin>
+		    <groupId>org.apache.maven.plugins</groupId>
+		    <artifactId>maven-eclipse-plugin</artifactId>
+		    <version>2.9</version>
+		    <configuration>
+		    	<downloadSources>true</downloadSources>
+		    	<downloadJavadocs>true</downloadJavadocs>
+		    </configuration>
+		</plugin>	    
+	    <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-dependency-plugin -->
+		<plugin>
+		    <groupId>org.apache.maven.plugins</groupId>
+		    <artifactId>maven-dependency-plugin</artifactId>
+		    <version>3.1.1</version>
+		</plugin>
+		<!-- Tests Locals Development -->
+		<!-- https://mvnrepository.com/artifact/org.mortbay.jetty/jetty-maven-plugin -->
+		<plugin>
+		    <groupId>org.mortbay.jetty</groupId>
+		    <artifactId>jetty-maven-plugin</artifactId>
+		    <version>8.1.16.v20140903</version>
+		    <configuration>
+		    	<scanIntervalSeconds>3</scanIntervalSeconds>
+		    	<webApp>
+		    		<contextPath>project</contextPath>
+		    	</webApp>
+		    </configuration>
+		</plugin>
+		
+      <!-- End Add -->
+    </plugins>
+  </build>
+</project>

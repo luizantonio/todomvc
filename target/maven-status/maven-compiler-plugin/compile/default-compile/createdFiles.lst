@@ -1,0 +1,8 @@
+br/com/todo/controller/BKP.class
+br/com/todo/repository/TodoRepositoryInterface.class
+br/com/todo/repository/TodoRepository.class
+br/com/todo/model/Todo.class
+br/com/todo/repository/BKPrepository.class
+br/com/todo/persistence/JPAUtil.class
+br/com/todo/controller/TodoController.class
+br/com/todo/controller/BKP171120200842.class
